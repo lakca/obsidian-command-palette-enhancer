@@ -1,0 +1,22 @@
+{
+  "setting.title": "Command Palette Enhance",
+  "toggle.on": "Disabled",
+  "toggle.off": "Enabled",
+  "settings.enabledPinHistory": "Enable Pin History",
+  "settings.enabledPinHistory.desc": "",
+  "settings.showHistoryIcon": "Show History Icon",
+  "settings.showHistoryIcon.desc": "",
+  "settings.enabledSearchCommandId": "Enable Search Command ID",
+  "settings.enabledSearchCommandId.desc": "It's benefit to enable this option When your language characters must be inputted through an IME.",
+  "settings.showCommandInfo": "Show Command Info",
+  "settings.showCommandInfo.desc": "Command ID will be also searched when enabledSearchCommandId is on.",
+  "settings.historyIcon": "Icon Before History Item",
+  "settings.historyIcon.desc": "",
+  "settings.commandInfoHeight": "Command Info Height",
+  "settings.commandInfoHeight.desc": "Maybe any CSS acceptable height value, such as 100px、10em、5%.",
+  "settings.historyMax": "Maximum Count of History Items",
+  "settings.historyMax.desc": "",
+  "settings.historyIgnoreList": "Ignoring Command IDs In History",
+  "settings.historyIgnoreList.desc": "",
+  "settings.historyIgnoreList.placeholder": "Search Command Name of ID"
+}

@@ -1,0 +1,22 @@
+{
+  "setting.title": "命令面板增强",
+  "toggle.on": "禁用",
+  "toggle.off": "启用",
+  "settings.enabledPinHistory": "启用置顶历史记录",
+  "settings.enabledPinHistory.desc": "",
+  "settings.showHistoryIcon": "显示历史记录图标",
+  "settings.showHistoryIcon.desc": "",
+  "settings.enabledSearchCommandId": "启用命令ID搜索",
+  "settings.enabledSearchCommandId.desc": "当使用中文等需要输入法输入的语言时，启用命令ID搜索功能同时搜索命令ID，可以提高搜索效率。",
+  "settings.showCommandInfo": "显示命令信息",
+  "settings.showCommandInfo.desc": "显示命令ID",
+  "settings.historyIcon": "历史记录图标",
+  "settings.historyIcon.desc": "",
+  "settings.commandInfoHeight": "命令信息样式高度",
+  "settings.commandInfoHeight.desc": "可以是任何CSS合法的高度值，如：100px、10em、5%等。",
+  "settings.historyMax": "历史记录最大数量",
+  "settings.historyMax.desc": "",
+  "settings.historyIgnoreList": "忽略历史记录ID列表",
+  "settings.historyIgnoreList.desc": "",
+  "settings.historyIgnoreList.placeholder": "搜索命令名称、ID"
+}
