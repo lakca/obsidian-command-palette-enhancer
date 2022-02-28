@@ -1,4 +1,4 @@
-import CommandPaletteEnhance from "main"
+import CommandPaletteEnhancer from "main"
 
 export abstract class Base {
 
@@ -10,7 +10,7 @@ export abstract class Base {
 
   private unloadList: Array<(...args: unknown[]) => void> = []
 
-  constructor(protected plugin: CommandPaletteEnhance) {
+  constructor(protected plugin: CommandPaletteEnhancer) {
   }
 
   get HISTORY_MAX() {
@@ -50,7 +50,6 @@ export abstract class Base {
   }
 
   load() {
-    console.log('load', this.constructor.name)
     if (!this.loaded) {
       this.loaded = true
       this.onload && this.onload()
@@ -58,7 +57,6 @@ export abstract class Base {
   }
 
   unload() {
-    console.log('unload', this.constructor.name)
     if (this.loaded) {
       this.onunload && this.onunload()
       do {

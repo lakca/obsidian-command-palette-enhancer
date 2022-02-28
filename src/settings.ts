@@ -1,9 +1,9 @@
 import { App, PluginSettingTab, Setting } from "obsidian"
 import CommandSuggest from "./command-suggest"
 
-import CommandPaletteEnhance from "../main"
+import CommandPaletteEnhancer from "../main"
 import { t } from "./utils"
-export interface CommandPaletteEnhanceSettings {
+export interface CommandPaletteEnhancerSettings {
 	enabledPinHistory: boolean;
 	showHistoryIcon: boolean;
 	showCommandInfo: boolean;
@@ -15,7 +15,7 @@ export interface CommandPaletteEnhanceSettings {
 	commandInfoHeight: string;
 }
 
-export const DEFAULT_SETTINGS: CommandPaletteEnhanceSettings = {
+export const DEFAULT_SETTINGS: CommandPaletteEnhancerSettings = {
 	enabledPinHistory: true,
 	showHistoryIcon: true,
 	showCommandInfo: true,
@@ -28,7 +28,7 @@ export const DEFAULT_SETTINGS: CommandPaletteEnhanceSettings = {
 }
 
 class CommandSuggestIgnoring extends CommandSuggest {
-	constructor(private readonly plugin: CommandPaletteEnhance, inputEl: HTMLInputElement) {
+	constructor(private readonly plugin: CommandPaletteEnhancer, inputEl: HTMLInputElement) {
 		super(plugin.app, inputEl)
 	}
 	getItems() {
@@ -37,11 +37,11 @@ class CommandSuggestIgnoring extends CommandSuggest {
 }
 
 export class SettingTab extends PluginSettingTab {
-	plugin: CommandPaletteEnhance
+	plugin: CommandPaletteEnhancer
 
 	private ignoreListContainer: HTMLElement = null
 
-	constructor(app: App, plugin: CommandPaletteEnhance) {
+	constructor(app: App, plugin: CommandPaletteEnhancer) {
 		super(app, plugin)
 	}
 

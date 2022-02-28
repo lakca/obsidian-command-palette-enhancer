@@ -1,4 +1,4 @@
-import { CommandPaletteEnhanceSettings, DEFAULT_SETTINGS, SettingTab } from './settings'
+import { CommandPaletteEnhancerSettings, DEFAULT_SETTINGS, SettingTab } from './settings'
 
 import { Base as BaseProvider } from './providers/base'
 import { Plugin, Events, EventRef, App, PluginManifest } from 'obsidian'
@@ -6,12 +6,12 @@ import providers from './provider'
 
 // Remember to rename these classes and interfaces!
 
-export default interface CommandPaletteEnhance extends Events {
+export default interface CommandPaletteEnhancer extends Events {
 	on(name: 'change-setting', callback: (key: string, value: unknown) => void): EventRef
 }
 
-export default class CommandPaletteEnhance extends Plugin {
-	settings: CommandPaletteEnhanceSettings
+export default class CommandPaletteEnhancer extends Plugin {
+	settings: CommandPaletteEnhancerSettings
 
 	providers: Record<string, BaseProvider> = {}
 
@@ -21,7 +21,7 @@ export default class CommandPaletteEnhance extends Plugin {
 	}
 
 	async onload() {
-		console.log('load enhance')
+		console.log('load command palette enhancer')
 
 		await this.loadSettings()
 
@@ -41,11 +41,11 @@ export default class CommandPaletteEnhance extends Plugin {
 	}
 
 	getClass(cls: string) {
-		return `command-palette-enhance-${cls}`
+		return `command-palette-enhancer-${cls}`
 	}
 
 	onunload() {
-		console.log('unload enhance')
+		console.log('unload command palette enhancer')
 		Object.values(this.providers).forEach((name) => {
 			name.unload()
 		})
@@ -60,4 +60,4 @@ export default class CommandPaletteEnhance extends Plugin {
 	}
 }
 
-Object.assign(CommandPaletteEnhance.prototype, Events.prototype)
+Object.assign(CommandPaletteEnhancer.prototype, Events.prototype)

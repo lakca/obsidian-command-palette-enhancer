@@ -1,3 +1,3 @@
-import CommandPaletteEnhance from './src/plugin'
+import CommandPaletteEnhancer from './src/plugin'
 
-export default CommandPaletteEnhance
+export default CommandPaletteEnhancer

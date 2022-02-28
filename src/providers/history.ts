@@ -8,7 +8,7 @@ export default class History extends Base {
 
   get stylesheet()  {
     return `
-    .command-palette-enhance-suggestion-info {
+    .command-palette-enhancer-suggestion-info {
       position: absolute;
       top: 100%;
       left: 34px;
@@ -51,7 +51,6 @@ export default class History extends Base {
         if (self.ENABLED_PIN_HISTORY && self.HISTORY_LIST.length) {
           const pinnedCommands = pinned.map(id => self.plugin.app.commands.findCommand(id))
           const historyCommands = self.HISTORY_LIST.map(id => self.plugin.app.commands.findCommand(id))
-          console.log(pinnedCommands, historyCommands)
           return Array.from(new Set(pinnedCommands.concat(historyCommands, commands)))
         }
         return commands
@@ -106,7 +105,6 @@ export default class History extends Base {
     if (getDeep(this.plugin.app, 'internalPlugins.plugins.command-palette.instance.modal.renderSuggestion')) {
       this.renderSuggestion = this.plugin.app.internalPlugins.plugins['command-palette'].instance.modal.renderSuggestion
       this.plugin.app.internalPlugins.plugins['command-palette'].instance.modal.renderSuggestion = function(item, el) {
-        console.log('render')
         if (self.HISTORY_LIST.includes(item.item.id)) {
           if (self.SHOW_HISTORY_ICON) el.appendChild(self.renderIcon())
           self.plugin.addClassTo(el, 'history-suggestion')
