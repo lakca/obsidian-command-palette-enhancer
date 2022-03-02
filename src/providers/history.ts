@@ -87,6 +87,9 @@ export default class History extends Base {
         this.getItemText = getItemText
         return suggestions
       }
+      this.addUnload(() => {
+        this.plugin.app.internalPlugins.plugins['command-palette'].instance.modal.getSuggestions = this.getSuggestions
+      })
     }
 
     // add history via capturing execution of command by choosing suggestion item in palette modal.
