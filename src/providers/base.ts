@@ -60,7 +60,7 @@ export abstract class Base {
     if (this.loaded) {
       this.onunload && this.onunload()
       do {
-        this.unloadList.shift()?.call(null)
+        this.unloadList.pop()?.call(null)
       } while (this.unloadList.length)
       this.loaded = false
     }
