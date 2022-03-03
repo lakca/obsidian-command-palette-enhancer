@@ -149,6 +149,7 @@ export class SettingTab extends PluginSettingTab {
 				if (~idx) {
 					this.plugin.settings.historyIgnoreList.splice(idx, 1)
 					this.updateIgnoreListEl()
+					this.plugin.trigger('change-setting', 'historyIgnoreList', this.plugin.settings.historyIgnoreList)
 				}
 			})
 			this.updateIgnoreListEl()

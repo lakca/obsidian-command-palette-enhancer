@@ -135,22 +135,27 @@ export default class History extends Base {
     this.plugin.registerEvent(this.plugin.on('change-setting', debounce((key, value) => {
       if (key === 'commandInfoHeight') {
         style.innerHTML = this.stylesheet
+      } else if (key === 'historyIgnoreList') {
+        this.updateHistory()
       }
     }, 1000)))
   }
 
   addHistory(commandId: string) {
     if (!this.HISTORY_IGNORE_LIST.includes(commandId)) {
-      const index = this.HISTORY_LIST.indexOf(commandId)
-      if (~index) {
-        this.HISTORY_LIST.splice(index, 1)
-        this.HISTORY_LIST.unshift(commandId)
-      } else {
-        this.HISTORY_LIST.unshift(commandId)
-      }
-      if (this.HISTORY_LIST.length > this.HISTORY_MAX) {
-        this.HISTORY_LIST.length = this.HISTORY_MAX
-      }
+      const { HISTORY_LIST, HISTORY_MAX } = this
+      const index = HISTORY_LIST.indexOf(commandId)
+      if (~index) HISTORY_LIST.splice(index, 1)
+      HISTORY_LIST.unshift(commandId)
+      if (HISTORY_LIST.length > HISTORY_MAX) HISTORY_LIST.length = HISTORY_MAX
+    }
+  }
+
+  updateHistory() {
+    const { HISTORY_LIST, HISTORY_IGNORE_LIST } = this
+    for (const id of HISTORY_IGNORE_LIST) {
+      const index = HISTORY_LIST.indexOf(id)
+      if (~index) HISTORY_LIST.splice(index, 1)
     }
   }
 
