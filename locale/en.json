@@ -18,5 +18,6 @@
   "settings.historyMax.desc": "",
   "settings.historyIgnoreList": "Ignoring Command IDs In History",
   "settings.historyIgnoreList.desc": "",
-  "settings.historyIgnoreList.placeholder": "Search Command Name of ID"
+  "settings.historyIgnoreList.placeholder": "Search Command Name of ID",
+  "commands.gotoHeading": "Go to Heading"
 }
