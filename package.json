@@ -27,7 +27,17 @@
 			"@semantic-release/release-notes-generator",
 			"@semantic-release/changelog",
 			"@semantic-release/git",
-			"@semantic-release/github"
+			[
+				"@semantic-release/github",
+				{
+					"assets": [
+						"main.js",
+						"package.json",
+						"manifest.json",
+						"style.css"
+					]
+				}
+			]
 		]
 	},
 	"files": [
