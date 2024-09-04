@@ -11,15 +11,20 @@ export default class History extends Base {
     .command-palette-enhancer-suggestion-info {
       position: absolute;
       top: 100%;
-      left: 34px;
-      margin-top: -${this.COMMAND_INFO_HEIGHT};
+      left: 45px;
+      margin-top: calc((-${this.COMMAND_INFO_HEIGHT}) / 2 - 12px / 2);
       line-height: 1;
       font-size: 12px;
-      color: #b5b5b5;
-      font-style: italic;
-      text-transform: uppercase;
+      color: #8d8d8d;
     }
-    .suggestion-item {
+    .prompt .suggestion-item .suggestion-content {
+		padding-inline-start: 30px;
+	}
+    .prompt .suggestion-item:has(.command-palette-enhancer-suggestion-flair) .suggestion-content {
+		padding-inline-start: 10px;
+	}
+    .prompt .suggestion-item {
+	  position: relative;
       padding-bottom: ${this.COMMAND_INFO_HEIGHT};
     }
     `
@@ -112,9 +117,9 @@ export default class History extends Base {
           if (self.SHOW_HISTORY_ICON) el.appendChild(self.renderIcon())
           self.plugin.addClassTo(el, 'history-suggestion')
         }
+        self.renderSuggestion.apply(this, arguments)
         if (self.SHOW_COMMAND_INFO) el.appendChild(self.renderCommandInfo(item.item))
         el.dataset.command = item.item.id
-        self.renderSuggestion.apply(this, arguments)
       }
       this.addUnload(() => {
         this.plugin.app.internalPlugins.plugins['command-palette'].instance.modal.renderSuggestion = this.renderSuggestion
@@ -177,7 +182,7 @@ export default class History extends Base {
   renderCommandInfo(command: Command) {
     const el = document.createElement('span')
     this.plugin.addClassTo(el, 'suggestion-info')
-    el.textContent = command.id
+    el.textContent = `ID: ${command.id}`
     return el
   }
 }
