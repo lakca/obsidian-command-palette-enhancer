@@ -21,8 +21,6 @@ export default class CommandPaletteEnhancer extends Plugin {
 	}
 
 	async onload() {
-		console.log('load command palette enhancer')
-
 		await this.loadSettings()
 
 		Object.entries(providers).forEach(([name, cls]) => {
@@ -45,7 +43,6 @@ export default class CommandPaletteEnhancer extends Plugin {
 	}
 
 	onunload() {
-		console.log('unload command palette enhancer')
 		Object.values(this.providers).forEach((name) => {
 			name.unload()
 		})

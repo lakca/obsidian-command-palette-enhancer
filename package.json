@@ -26,15 +26,20 @@
 			"@semantic-release/commit-analyzer",
 			"@semantic-release/release-notes-generator",
 			"@semantic-release/changelog",
-			"@semantic-release/git",
+			[
+				"@semantic-release/git",
+				{
+					"assets": [ "CHANGELOG.md" ]
+				}
+			],
 			[
 				"@semantic-release/github",
 				{
 					"assets": [
-						"main.js",
-						"package.json",
-						"manifest.json",
-						"style.css"
+						{ "path": "main.js" },
+						{ "path": "manifest.json" },
+						{ "path": "styles.css" },
+						[ "main.js", "package.json", "manifest.json", "styles.css" ]
 					]
 				}
 			]
@@ -44,7 +49,7 @@
 		"main.js",
 		"package.json",
 		"manifest.json",
-		"style.css"
+		"styles.css"
 	],
 	"devDependencies": {
 		"@semantic-release/changelog": "^6.0.3",
