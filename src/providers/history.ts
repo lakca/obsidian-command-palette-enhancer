@@ -4,32 +4,6 @@ import { getDeep } from "../utils"
 
 export default class History extends Base {
 
-  private stylesheetId = 'command-palette-history-stylesheet'
-
-  get stylesheet()  {
-    return `
-    .command-palette-enhancer-suggestion-info {
-      position: absolute;
-      top: 100%;
-      left: 45px;
-      margin-top: calc((-${this.COMMAND_INFO_HEIGHT}) / 2 - 12px / 2);
-      line-height: 1;
-      font-size: 12px;
-      color: #8d8d8d;
-    }
-    .prompt .suggestion-item .suggestion-content {
-		padding-inline-start: 30px;
-	}
-    .prompt .suggestion-item:has(.command-palette-enhancer-suggestion-flair) .suggestion-content {
-		padding-inline-start: 10px;
-	}
-    .prompt .suggestion-item {
-	  position: relative;
-      padding-bottom: ${this.COMMAND_INFO_HEIGHT};
-    }
-    `
-  }
-
   private getCommands: App['internalPlugins']['plugins']['command-palette']['instance']['getCommands']
 
   private executeCommandById: App['commands']['executeCommandById']
@@ -126,20 +100,9 @@ export default class History extends Base {
       })
     }
 
-    // add style block.
-    const style = document.createElement('style')
-    style.setAttribute('type', 'text/css')
-    style.id = this.stylesheetId
-    style.innerHTML = this.stylesheet
-    document.head.appendChild(style)
-
-    this.addUnload(() => {
-      document.head.querySelector('#' + this.stylesheetId)?.remove()
-    })
-
     this.plugin.registerEvent(this.plugin.on('change-setting', debounce((key, value) => {
       if (key === 'commandInfoHeight') {
-        style.innerHTML = this.stylesheet
+        document.documentElement.style.setProperty("--command-palette-enhancer-command-info-height", this.COMMAND_INFO_HEIGHT)
       } else if (key === 'historyIgnoreList') {
         this.updateHistory()
       }
@@ -168,11 +131,10 @@ export default class History extends Base {
     const el = document.createElement('span')
     el.classList.add('suggestion-flair')
     this.plugin.addClassTo(el, 'suggestion-flair')
-    const temp = document.createElement('template')
-    temp.innerHTML = this.HISTORY_ICON.trim()
-    const svg = temp.content.firstChild as SVGElement
-    svg.setAttribute('width', '13px')
-    svg.setAttribute('height', '13px')
+	const doc = new DOMParser().parseFromString( this.HISTORY_ICON.trim(), 'application/xml')
+	const svg = doc.documentElement
+    svg.setAttribute('width', '0.8em')
+    svg.setAttribute('height', '0.8em')
     svg.setAttribute('fill', 'currentColor')
     svg.setAttribute('stroke', 'currentColor')
     el.appendChild(svg)
