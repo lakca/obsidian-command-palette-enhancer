@@ -1,4 +1,5 @@
 import { App, Command, EventRef, Events, FuzzyMatch, PopoverSuggest, prepareFuzzySearch } from "obsidian"
+import { addClassTo } from "./utils"
 
 export default interface CommandSuggest extends Events {
 	on(name: 'select', callback: (command: Command) => void): EventRef;
@@ -56,9 +57,15 @@ export default class CommandSuggest extends PopoverSuggest<FuzzyMatch<Command>> 
 	}
 	show(query?: string) {
 		this.lastSelected = null
+		addClassTo(this.suggestEl, 'command-suggest')
 		const rect = this.inputEl.getBoundingClientRect()
-		this.suggestEl.style.width = rect.width + 'px'
-		this.reposition(rect)
+		const x = rect.x + rect.width
+		this.reposition(DOMRect.fromRect({
+			x,
+			y: rect.y,
+			width: rect.width,
+			height: rect.height
+		}))
 		this.open()
 		this.updateSuggestions(query)
 	}

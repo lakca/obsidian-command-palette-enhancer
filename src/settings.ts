@@ -69,7 +69,6 @@ export class SettingTab extends PluginSettingTab {
 		containerEl.empty()
 
 		containerEl.createEl('h2', {text: t('setting.title')})
-		.style.textAlign = 'center'
 
 		for (const item of ['enabledPinHistory', 'showHistoryIcon', 'showCommandInfo', 'enabledSearchCommandId'] as const) {
 			new Setting(containerEl)
@@ -95,16 +94,13 @@ export class SettingTab extends PluginSettingTab {
 					.setLimits(1, 100, 1)
 					.setDynamicTooltip()
 					.onChange(value => {
-					this.plugin.settings[item] = Number(value)
-					this.plugin.saveSettings()
-					this.plugin.trigger('change-setting', item, value)
-					dynText.textContent = `${this.plugin.settings[item]}`
-				})
-			})
-      .settingEl.createDiv('', (el) => {
+						this.plugin.settings[item] = Number(value)
+						this.plugin.saveSettings()
+						this.plugin.trigger('change-setting', item, value)
+						dynText.textContent = `${this.plugin.settings[item]}`
+					})
+			}).settingEl.createDiv('', (el) => {
 				dynText = el
-        el.style.minWidth = '2.3em'
-        el.style.textAlign = 'right'
         el.textContent = ` ${this.plugin.settings.historyMax}`
       })
 		}

@@ -3,6 +3,7 @@ import { CommandPaletteEnhancerSettings, DEFAULT_SETTINGS, SettingTab } from './
 import { Base as BaseProvider } from './providers/base'
 import { Plugin, Events, EventRef, App, PluginManifest } from 'obsidian'
 import providers from './provider'
+import { addClassTo, getClass } from './utils'
 
 // Remember to rename these classes and interfaces!
 
@@ -32,15 +33,9 @@ export default class CommandPaletteEnhancer extends Plugin {
 		this.addSettingTab(new SettingTab(this.app, this))
 	}
 
-	addClassTo(el: HTMLElement, classes: string|string[]) {
-		classes = Array.isArray(classes) ? classes : [classes]
-		el.classList.add(...classes.map(e => this.getClass(e)))
-		return this
-	}
+	addClassTo = addClassTo
 
-	getClass(cls: string) {
-		return `command-palette-enhancer-${cls}`
-	}
+	getClass = getClass
 
 	onunload() {
 		Object.values(this.providers).forEach((name) => {

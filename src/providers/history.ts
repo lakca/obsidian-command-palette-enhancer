@@ -131,8 +131,8 @@ export default class History extends Base {
     const el = document.createElement('span')
     el.classList.add('suggestion-flair')
     this.plugin.addClassTo(el, 'suggestion-flair')
-	const doc = new DOMParser().parseFromString( this.HISTORY_ICON.trim(), 'application/xml')
-	const svg = doc.documentElement
+    const doc = new DOMParser().parseFromString( this.HISTORY_ICON.trim(), 'application/xml')
+    const svg = doc.documentElement
     svg.setAttribute('width', '0.8em')
     svg.setAttribute('height', '0.8em')
     svg.setAttribute('fill', 'currentColor')

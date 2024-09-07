@@ -25,3 +25,12 @@ export function getDeep<R>(obj: any, path: string, sep = '.'): R {
   }
   return obj
 }
+
+export function getClass(cls: string) {
+	return `command-palette-enhancer-${cls}`
+}
+
+export function addClassTo(el: HTMLElement, classes: string|string[]) {
+	classes = Array.isArray(classes) ? classes : [classes]
+	el.classList.add(...classes.map(e => getClass(e)))
+}
