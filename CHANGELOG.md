@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/lakca/obsidian-command-palette-enhancer/compare/1.0.0...1.0.1) (2024-09-09)
+
+
+### Bug Fixes
+
+* update release to auto bump version in manifest, and bump ([274bed9](https://github.com/lakca/obsidian-command-palette-enhancer/commit/274bed9f66f5e41235693fad64942602274ecac9))
+
 # 1.0.0 (2024-09-04)
 
 
