@@ -30,17 +30,30 @@
 			[
 				"@semantic-release/git",
 				{
-					"assets": [ "CHANGELOG.md" ]
+					"assets": [
+						"CHANGELOG.md"
+					]
+				}
+			],
+			[
+				"@semantic-release/exec",
+				{
+					"prepareCmd": "node -e 'fs.writeFileSync(\"./manifest.json\", JSON.stringify({...require(\"./manifest.json\"), version: \"${nextRelease.version}\"}, null, 4))'"
 				}
 			],
 			[
 				"@semantic-release/github",
 				{
 					"assets": [
-						{ "path": "main.js" },
-						{ "path": "manifest.json" },
-						{ "path": "styles.css" },
-						[ "main.js", "package.json", "manifest.json", "styles.css" ]
+						{
+							"path": "main.js"
+						},
+						{
+							"path": "manifest.json"
+						},
+						{
+							"path": "styles.css"
+						}
 					]
 				}
 			]
@@ -54,6 +67,7 @@
 	],
 	"devDependencies": {
 		"@semantic-release/changelog": "^6.0.3",
+		"@semantic-release/exec": "^6.0.3",
 		"@semantic-release/git": "^10.0.1",
 		"@types/node": "^16.11.6",
 		"@typescript-eslint/eslint-plugin": "^5.2.0",
