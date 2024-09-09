@@ -28,17 +28,18 @@
 			"@semantic-release/release-notes-generator",
 			"@semantic-release/changelog",
 			[
-				"@semantic-release/git",
-				{
-					"assets": [
-						"CHANGELOG.md"
-					]
-				}
-			],
-			[
 				"@semantic-release/exec",
 				{
 					"prepareCmd": "node -e 'fs.writeFileSync(\"./manifest.json\", JSON.stringify({...require(\"./manifest.json\"), version: \"${nextRelease.version}\"}, null, 4))'"
+				}
+			],
+			[
+				"@semantic-release/git",
+				{
+					"assets": [
+						"CHANGELOG.md",
+						"manifest.json"
+					]
 				}
 			],
 			[
