@@ -30,7 +30,7 @@
 			[
 				"@semantic-release/exec",
 				{
-					"prepareCmd": "node -e 'fs.writeFileSync(\"./manifest.json\", JSON.stringify({...require(\"./manifest.json\"), version: \"${nextRelease.version}\"}, null, 4))'"
+					"prepareCmd": "npm_package_version=${nextRelease.version} node version-bump.mjs"
 				}
 			],
 			[
