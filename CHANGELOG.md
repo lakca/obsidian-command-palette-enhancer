@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/lakca/obsidian-command-palette-enhancer/compare/1.0.1...1.1.0) (2024-09-30)
+
+
+### Features
+
+* add toggle-word-wrap ([dc4b5ff](https://github.com/lakca/obsidian-command-palette-enhancer/commit/dc4b5ff4482b2ce4419b8c0f34345625e18d05c3))
+
 ## [1.0.1](https://github.com/lakca/obsidian-command-palette-enhancer/compare/1.0.0...1.0.1) (2024-09-09)
 
 
