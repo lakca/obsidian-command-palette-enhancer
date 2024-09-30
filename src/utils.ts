@@ -2,6 +2,7 @@
 import { filenames as localeFilenames, default as localeFiles } from '../locale/*.json'
 
 import en from '../locale/en.json'
+import { id as NS } from '../manifest.json'
 
 const LOCALES: { [key: string]: Partial<typeof en>} = Object.fromEntries(localeFilenames.map((name: string, i: number) => {
   return [name.match(/([^/]+)\.json$/)[1], localeFiles[i].default]
@@ -27,10 +28,10 @@ export function getDeep<R>(obj: any, path: string, sep = '.'): R {
 }
 
 export function getClass(cls: string) {
-	return `command-palette-enhancer-${cls}`
+  return `${NS}-${cls}`
 }
 
 export function addClassTo(el: HTMLElement, classes: string|string[]) {
-	classes = Array.isArray(classes) ? classes : [classes]
-	el.classList.add(...classes.map(e => getClass(e)))
+  classes = Array.isArray(classes) ? classes : [classes]
+  el.classList.add(...classes.map(e => getClass(e)))
 }

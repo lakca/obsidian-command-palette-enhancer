@@ -1,0 +1,73 @@
+json('./manifest.json')
+ns = id
+
+nsname(name) {
+  return unquote('--' + ns + '-' + name)
+}
+
+nscls(name) {
+  return unquote('.' + ns + '-' + name)
+}
+
+nsvar(name) {
+  return var(nsname(name))
+}
+
+:root
+  {nsname(setting-suggest-select-width)}: 14px
+  {nsname(command-info-height)}: 14px
+  {nsname(command-info-height-offset)}: 2px
+  {nsname(icon-close)}: url("data:image/svg+xml;utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-x'><path d='M18 6 6 18'/><path d='m6 6 12 12'/></svg>")
+
+{nscls(nowrap)}
+  .cm-s-obsidian .cm-line
+    white-space: nowrap
+    min-width: min-content
+
+/* setting */
+{nscls(history-ignore-list)}:after
+  content: ""
+  display: block
+  clear: both
+  padding-bottom: 20px
+
+{nscls(history-ignore-item)}
+  float: left
+  border: solid 1px #ccc
+  border-radius: 4px
+  margin: 0 10px 5px 0
+  padding: 2px 10px
+  display: flex
+  align-items: center
+  justify-content: center
+
+{nscls(history-ignore-item-remove)}
+  mask: nsvar(icon-close) no-repeat 50% 50%
+  background-color: var(--text-normal)
+  cursor: pointer
+  margin-right: 10px
+  width: 0.6em
+  height: 0.6em
+
+/* workspace */
+{nscls(suggestion-info)}
+  position: absolute
+  top: 100%
+  left: 45px
+  margin-top: "calc(0px - %s / 2 - 12px / 2)" % nsvar(command-info-height)
+  line-height: 1
+  font-size: 12px
+  color: #8d8d8d
+
+{nscls(command-suggest)}
+  transform: translateX(-100%)
+
+.prompt
+  .suggestion-item
+    position: relative
+    padding-bottom: "calc(%s + %s)" % (nsvar(command-info-height) nsvar(command-info-height-offset))
+    .suggestion-content
+      padding-inline-start: 30px
+  .suggestion-item:has({nscls(suggestion-flair)})
+    .suggestion-content
+      padding-inline-start: 10px
