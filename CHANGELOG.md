@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/lakca/obsidian-command-palette-enhancer/compare/1.1.0...1.2.0) (2024-10-25)
+
+
+### Features
+
+* add auto collapse outline ([f386726](https://github.com/lakca/obsidian-command-palette-enhancer/commit/f386726ccb29e7c52aa3803be5be3ac0c3d8c6fd))
+
 # [1.1.0](https://github.com/lakca/obsidian-command-palette-enhancer/compare/1.0.1...1.1.0) (2024-09-30)
 
 
