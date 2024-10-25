@@ -18,5 +18,9 @@
   "settings.historyMax.desc": "",
   "settings.historyIgnoreList": "Ignoring command IDs in history",
   "settings.historyIgnoreList.desc": "",
-  "settings.historyIgnoreList.placeholder": "Search command name of ID"
+  "settings.historyIgnoreList.placeholder": "Search command name of ID",
+  "settings.autoCollapseOutline": "Auto Collapse Outline",
+  "settings.autoCollapseOutline.desc": "",
+  "notice.enableAutoCollapseOutline": "Enabled Auto Collapse Outline",
+  "notice.disableAutoCollapseOutline": "Disabled Auto Collapse Outline"
 }

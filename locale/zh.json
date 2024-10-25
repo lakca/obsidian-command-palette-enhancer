@@ -18,5 +18,9 @@
   "settings.historyMax.desc": "",
   "settings.historyIgnoreList": "忽略历史记录ID列表",
   "settings.historyIgnoreList.desc": "",
-  "settings.historyIgnoreList.placeholder": "搜索命令名称、ID"
+  "settings.historyIgnoreList.placeholder": "搜索命令名称、ID",
+  "settings.autoCollapseOutline": "自动折叠大纲",
+  "settings.autoCollapseOutline.desc": "",
+  "notice.enableAutoCollapseOutline": "已开启 自动折叠文档目录",
+  "notice.disableAutoCollapseOutline": "已关闭 自动折叠文档目录"
 }

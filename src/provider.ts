@@ -1,3 +1,4 @@
+import Collapse from './providers/collapse'
 import Command from './providers/command'
 import History from './providers/history'
 import Search from './providers/search'
@@ -7,5 +8,6 @@ export default {
   History,
   Search,
   Suggestion,
-  Command
+  Command,
+  Collapse
 }

@@ -18,6 +18,10 @@ Settings:
 
 ![settings](./settings.png)
 
+## Auto Collapse Outline
+
+![auto-collapse-outline.png](auto-collapse-outline.png)
+
 ## LICENSE
 
 MIT
